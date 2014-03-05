@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Function as Namespaces</title>
+<script type="text/javascript">
+
+var a = "Alphabets";
+
+//To Avoid the variable name clashes - JS uses function as packages
+//So the function will act as a package and it will not override the global var
+var module = (function() {
+	var a = "string values";
+	
+	// mymodule function rewritten as an unnamed expression 
+	// Module code goes here.
+	
+    return function module_a()
+	{
+    	module_a.a = a;
+    	module_a.b = "b for ball";
+		return module_a;
+	}
+}());
+
+alert(a);
+//alert(module);
+if (typeof module === "function") 
+	alert("yes");
+else
+	alert("no");
+	
+alert(module().a);
+alert(module.a);
+	
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
