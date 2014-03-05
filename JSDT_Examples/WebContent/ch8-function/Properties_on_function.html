@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Properties on function</title>
+<script type="text/javascript">
+
+ 
+function factorial(n) {
+if (isFinite(n) && n>0 && n==Math.round(n)) 
+{ 
+	    if (!(n in factorial))
+		{
+			factorial[n] = n * factorial(n-1);
+		}
+		return factorial[n];
+}
+else return NaN;
+}
+factorial[1] = 1;
+
+factorial(8);
+alert(factorial(8));
+alert(factorial[3]);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
