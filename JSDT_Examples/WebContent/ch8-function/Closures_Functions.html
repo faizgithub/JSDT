@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<title>Javascript Closures</title>
+
+<script type="text/javascript">
+Object.prototype.new_property = "test"; 
+
+//using methods
+var a ="Global scope";
+
+function checkScope()
+{
+	var a ="Local scope";
+	function f(){return a;}
+	return f;
+}
+
+var test = checkScope();
+alert(test());
+alert(checkScope());
+
+//Using objects
+counter.d =10;
+function counter() { 
+	 counter.n = 0;
+	return {
+		ntemp: function() { return counter.n; } ,
+		count: function() { return ++counter.n; }, 
+		reset: function() { counter.n = 0; }
+     }; 
+}
+
+var c = counter(), d = counter(); 
+c.count()
+d.count()
+c.reset()
+c.count()
+d.count()
+
+//c should be 1
+alert(c.ntemp());
+//d should be 2
+alert(d.ntemp());
+alert(counter.d);
+alert(Object.getOwnPropertyNames(Object.getPrototypeOf(c)));
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
