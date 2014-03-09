@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Function Binding</title>
+<script type="text/javascript">
+
+function f(y) {return this.x+y}
+var o={x:1}
+
+var g =f.bind(o);
+alert(g(5));
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

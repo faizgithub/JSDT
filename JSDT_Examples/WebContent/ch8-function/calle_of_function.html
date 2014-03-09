@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Function Calle</title>
+
+<script type="text/javascript">
+
+function check(args)
+{
+	//note arguments and args are different
+	//arguments defines the actual number of passed arguments
+	//args gives the defined ones 
+	var actual = args.length;
+	var expected = args.callee.length;
+	alert(args.callee.length);
+	if(actual == expected)
+		alert("Yes the calle has the same number of arguments");
+	else 
+		throw Error ("Expected " + expected + "args; got " + actual);
+}
+
+function callCheck(x,y)
+{
+	check(arguments);
+}
+
+
+//This is successful
+callCheck(1,2);
+//This is a failure
+callCheck(1,2,3);
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
